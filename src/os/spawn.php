@@ -48,8 +48,10 @@ final class posix_spawn_file_actions_addchdir_np
 
 type posix_spawn_file_actions_t = vec<PosixSpawnFileActionsSetter>;
 
-const int POSIX_SPAWN_SETPGROUP = 2;
-const int POSIX_SPAWN_SETSID = _OS\IS_MACOS ? 0x0400 : 0x80;
+enum PosixSpawnFlag: int as int {
+  POSIX_SPAWN_SETPGROUP = 2;
+  POSIX_SPAWN_SETSID = _OS\IS_MACOS ? 0x0400 : 0x80;
+}
 
 type PosixSpawnFlags = int;
 
